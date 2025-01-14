@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="logo/norsu.png" type="image/png">
+
+    
+    <script src="/javascriptFiles/script.js" defer></script> 
+    <title>Enhanced E-Commerce Website</title>
+</head>
+<body>
+
+    <div> 
+        <div class="headerBGcontainer"> 
+        <img class="headerBG" src="BGpics/norsupfp.jpg" alt="">
+       
+            <div class="LogoContainer"> 
+                 <img class="norsulogo" src="BGpics/norsu.png" alt=""> 
+                <p></p> 
+                <h1 class ="logo1">NORSU SHOPPE</h1>
+            </div>
+
+
+            <div class="paragraphContainer">
+
+                <h1> 
+                    Welcome to Negros Oriental State University Shoppe
+                </h1>
+
+                <h2>
+                    You'll find everything you need to show your school pride - from official merchandise to essential supplies.
+                    Whether you're a student, parent, or teacher, we've got something for everyone.
+                    Shop now and support the Norsu community!"
+                </h2>
+            </div>  
+
+        </div>
+    </div>
+
+
+    <div class="productContainer" id="productContainer">
+    </div>
+
+
+     <!--NAVIGATION BAR--> 
+     <ul class="tabs">
+        <li data-tab-target="#navHome" class="active tab"><img src="buttons/house-chimney.png"
+             alt="home" class="homePNG" href="home.html"></li>
+
+        <li data-tab-target="#navCart" class="tab"> <img src="buttons/shopping-cart.png"
+             alt="Cart" class="cartPNG">
+        </li>
+
+        <li data-tab-target="#navCartHistory" class="tab"> <img src="buttons/Cart History.png"
+            alt="cartHistory" class="cartHistoryPNG">
+       </li>
+
+    </ul>
+
+    <div class="tab-content">
+
+            <div id="navHome" data-tab-content>
+                <h1></h1>
+                <p></p>            
+            </div>
+            
+            <div id="navCart" data-tab-content>
+    <!-- Cart-->
+ <nav class="overAllcartNav">
+   
+                    <!-- CLOSE -->
+                <div class="parentToCart">  
+                    <div data-tab-target="#close" class="active tab"><img src="buttons/cross.png"
+                        alt="closeButton" class="closeButton" href="home.html">  </div>
+                    <!-- CLOSE -->
+
+        <div class="cart">
+            <div class="leftContainer"> 
+                <h4>Review your order</h4>
+        
+                <div id="orderedProducts" class="orderedProducts">
+                </div>
+        </div>  
+
+            <!--Nav bar (cart)--> 
+            <div id="rightContainer" class="rightContainer"> 
+               
+                
+                <div class="cartContainer" id="cartContainer">
+                    <h3>Order Summary</h3>  
+                </div>
+            <!--Nav bar (cart)-->
+            
+
+            </div>
+        </div>
+    </div>
+</nav>
+        </div>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+        <div id="navCartHistory" data-tab-content>
+            
+
+        <!--Transctions / History of Purchase-->
+    <div id="transactions">
+        <div data-tab-target="#close" class="active tab"><img src="buttons/cross.png"
+            alt="closeButton" class="closeButton" href="home.html">  </div>
+        <h3>
+            History of Purchase
+        </h3>
+    </div>
+        
+            </div>
+
+         
+            
+
+
+    </div>
+</body>
+</html>

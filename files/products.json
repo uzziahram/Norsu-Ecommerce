@@ -1,0 +1,86 @@
+[
+    {
+        "name": "College of Arts and Sciences Tshirt",
+        "price": 250,
+        "id": 1,
+        "imgSrc": "products/castshirt.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "College of Engineering and Architecture PoloShirt",
+        "price": 500,
+        "id": 5,
+        "imgSrc": "products/ceamerch.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "College of Engineering and Architecture Tshirt",
+        "price": 350,
+        "id": 6,
+        "imgSrc": "products/ceamerch2.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "C.E.A Geodetic Engineering PoloShirt",
+        "price": 450,
+        "id": 11,
+        "imgSrc": "products/geodeticEndPolo.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "C.E.A Geodetic Engineering Laniard",
+        "price": 90,
+        "id": 12,
+        "imgSrc": "products/geodeticEndLaniard.jpg",
+        "hasSizes": false
+    },
+    {
+        "name": "C.E.A Electrical Engineering PoloShirt",
+        "price": 550,
+        "id": 9,
+        "imgSrc": "products/ElectricalEngPolo.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "C.E.A Electrical Engineering Laniard",
+        "price": 75,
+        "id": 10,
+        "imgSrc": "products/ElectricalEngLaniard.jpg",
+        "hasSizes": false
+    },
+    {
+        "name": "C.I.T CompTech PoloShirt",
+        "price": 450,
+        "id": 2,
+        "imgSrc": "products/citcomptech.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "C.I.T ElecTech PoloShirt",
+        "price": 500,
+        "id": 3,
+        "imgSrc": "products/citElecTech.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "C.I.T AutoMotive PoloShirt",
+        "price": 400,
+        "id": 4,
+        "imgSrc": "products/citautomotive.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "C.A.S Psychology PoloShirt",
+        "price": 450,
+        "id": 7,
+        "imgSrc": "products/pscyhPoloShirt.jpg",
+        "hasSizes": true
+    },
+    {
+        "name": "C.A.S Psychology Laniard",
+        "price": 80,
+        "id": 8,
+        "imgSrc": "products/psychLaniard.jpg",
+        "hasSizes": false
+    }
+]
