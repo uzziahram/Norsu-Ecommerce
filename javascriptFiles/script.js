@@ -627,7 +627,9 @@ const Show_history_Of_Purchase = () => {
             </table>
         `;
         const tableBody = risibo.querySelector('tbody');
-        for (let item of receipt.slice(5)) {
+        // Only loop through items, not including the last element (tax)
+        const items = receipt.slice(5, receipt.length - 1);
+        for (let item of items) {
             const sizeCell = item.hasOwnProperty("size") ? `<td><h5>${item.size}</h5></td>` : `<td><h5>N/A</h5></td>`;
             const rowHTML = `
                 <tr>
