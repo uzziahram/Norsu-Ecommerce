@@ -300,6 +300,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(currentOrder);
     console.log(history_Of_Purchase);
 
+    // Add event listener for opening transactions
+    const openTransactionsBtn = document.getElementById('openTransactionsBtn');
+    const transactionsDiv = document.getElementById('transactions');
+    if (openTransactionsBtn && transactionsDiv) {
+        openTransactionsBtn.onclick = function() {
+            transactionsDiv.style.display = 'block';
+        };
+    }
 });
 
 
@@ -583,10 +591,10 @@ const Show_history_Of_Purchase = () => {
     const parentDiv = document.getElementById('transactions');
     parentDiv.innerHTML = '';
 
-    // Add close button for the entire transactions div
+    // Add close button for the entire transactions div (as an image)
     const closeTransactionsBtn = document.createElement('button');
-    closeTransactionsBtn.textContent = 'Close';
     closeTransactionsBtn.className = 'close-transactions-btn';
+    closeTransactionsBtn.innerHTML = '<img src="buttons/close_6318798.png" alt="Close" style="width:24px;height:24px;vertical-align:middle;">';
     closeTransactionsBtn.onclick = function() {
         parentDiv.style.display = 'none';
     };
