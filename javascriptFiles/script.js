@@ -596,7 +596,11 @@ const Show_history_Of_Purchase = () => {
     parentDiv.innerHTML = '';
 
     if (!history_Of_Purchase || history_Of_Purchase.length === 0) {
-        parentDiv.innerHTML = '<h5 style="text-align:center; margin-top:2rem;">History of purchase is empty bro</h5>';
+        parentDiv.innerHTML = `
+            <div 
+                <h5>Your Cart is empty</h5>
+            </div>
+        `;
         return;
     }
 
