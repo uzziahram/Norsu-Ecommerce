@@ -588,13 +588,11 @@ const Show_history_Of_Purchase = () => {
         risibo.classList.add('orderedProduct');
         risibo.innerHTML = `
             <div class="info">
-                
                 <div>
-                    <a id="close${index}" onclick="deleteHistory(${index})">
-                        <img src="buttons/close_6318798.png"/>
-                    </a>
+                <a id="close${index}" onclick="deleteHistory(${index})">
+                    <img src="buttons/close_6318798.png"/>
+                </a>
                 </div>
-
                 <h5>Purchased by: ${receipt[1]}</h5>
                 <h5>ID: ${receipt[0]}</h5>
                 <h5>Date Purchased: ${receipt[3]}</h5>
@@ -619,18 +617,27 @@ const Show_history_Of_Purchase = () => {
                 <tr>
                     <td><h5>${item.name}</h5></td>
                     ${sizeCell}
-                    <td class="center"><h5>${item.quantity}</h5></td>
-                    <td class="center"><h5>${item.totalPrice}</h5></td>
+                    <td class="center"><h5>${parseFloat(item.quantity).toFixed(2)}</h5></td>
+                    <td class="center"><h5>${parseFloat(item.totalPrice).toFixed(2)}</h5></td>
                 </tr>
             `;
             tableBody.innerHTML += rowHTML;
         }
+        // Calculate and show tax (2% of subtotal)
+        const subtotalValue = parseFloat(receipt[2]);
+        const taxValue = (subtotalValue * 0.02).toFixed(2);
         const subtotal = `
             <tr>
                 <td></td>
                 <td></td>
                 <td><h5>TOTAL:</h5></td>
-                <td><h5>${receipt[2]}</h5></td>
+                <td><h5>${subtotalValue.toFixed(2)}</h5></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><h5>TAX (2%):</h5></td>
+                <td><h5>${taxValue}</h5></td>
             </tr>
         `;
         tableBody.innerHTML += subtotal;
