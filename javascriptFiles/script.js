@@ -552,7 +552,7 @@ const buyButton = () => {
                 currentOrder.unshift(userID, User_name, subtotal, date, time);
                 currentOrder.push(subtotal * 0.02); // Adding tax to the order
             
-        
+
                 history_Of_Purchase.unshift(currentOrder);
         
                 currentOrder = [];
