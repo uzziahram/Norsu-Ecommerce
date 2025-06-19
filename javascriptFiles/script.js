@@ -1,4 +1,6 @@
 //Array of products
+
+
 const products =  [
         {
             name : `College of Arts and Sciences Tshirt`,
