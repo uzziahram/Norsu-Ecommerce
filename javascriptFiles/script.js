@@ -515,7 +515,6 @@ const deleteOrderedProduct = (orderedProductID) => {
 //Buy Button
 const buyButton = () => {
 
-
     let currentOrder = JSON.parse(localStorage.getItem("currentOrder"));
 
     if (currentOrder.length === 0) {
@@ -527,6 +526,8 @@ const buyButton = () => {
 
         let history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase"));
         let subtotal = 0;
+
+
         for( let item of currentOrder){
             subtotal += item.totalPrice;
         }
@@ -551,6 +552,7 @@ const buyButton = () => {
                 const time = now.toLocaleTimeString();
 
                 currentOrder.unshift(userID, User_name, subtotal, date, time);
+                currentOrder.push(subtotal * 0.02); // Adding tax to the order
             
         
                 history_Of_Purchase.unshift(currentOrder);
@@ -646,8 +648,10 @@ const Show_history_Of_Purchase = () => {
 };
 
 
-const deleteHistory = (index) => {
-    let history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase"));
+const deleteHistory = (orderedProductID) => {
+
+    const history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase")) || [];
+    const index = history_Of_Purchase.findIndex(orderedProduct => orderedProduct.id === orderedProductID);
 
     if (index >= 0 && index < history_Of_Purchase.length) {
         history_Of_Purchase.splice(index, 1);
