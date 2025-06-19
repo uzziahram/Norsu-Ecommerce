@@ -325,9 +325,7 @@ const showCurrentOrder = () => {
                               <h5>Your Cart is empty</h5>
                               `;
     } else {
-
-      
-
+    
         for(let order of currentOrder){
 
             if(order.hasOwnProperty("size") === true) {
@@ -591,10 +589,10 @@ const Show_history_Of_Purchase = () => {
 
 
         risibo.innerHTML = `
+            <a id="close${order.id}" onclick="deleteHistory(${order.id})">
+                <img src="buttons/close_6318798.png"/>
+            </a>
             <div class="info">
-                <a id="close${order.id}" onclick="deleteHistory(${order.id})">
-                    <img src="buttons/close_6318798.png"/>
-                </a>
                 <div></div>
                 <h5>Purchased by: ${receipt[1]}</h5>
                 <h5>ID: ${receipt[0]}</h5>
