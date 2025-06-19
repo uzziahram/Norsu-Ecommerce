@@ -595,6 +595,11 @@ const Show_history_Of_Purchase = () => {
     const parentDiv = document.getElementById('transactions');
     parentDiv.innerHTML = '';
 
+    if (!history_Of_Purchase || history_Of_Purchase.length === 0) {
+        parentDiv.innerHTML = '<h5 style="text-align:center; margin-top:2rem;">History of purchase is empty bro</h5>';
+        return;
+    }
+
     history_Of_Purchase.forEach((receipt, index) => {
         const risibo = document.createElement('div');
         risibo.classList.add('orderedProduct');
