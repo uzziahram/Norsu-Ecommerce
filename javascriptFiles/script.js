@@ -428,7 +428,6 @@ const addButton = ( haveSizesID ,productNameID, sizeID, quantityID, priceValueID
 
         localStorage.setItem("currentOrder", JSON.stringify(currentOrder));
 
-
     } else {
         const productSize = document.getElementById(sizeID).value;
 
@@ -650,10 +649,10 @@ const Show_history_Of_Purchase = () => {
 };
 
 
-const deleteHistory = (orderedProductID) => {
+const deleteHistory = (index) => {
 
     const history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase")) || [];
-    const index = history_Of_Purchase.findIndex(orderedProduct => orderedProduct.id === orderedProductID);
+    // const index = history_Of_Purchase.findIndex(orderedProduct => orderedProduct.id === orderedProductID);
 
     if (index >= 0 && index < history_Of_Purchase.length) {
         history_Of_Purchase.splice(index, 1);
