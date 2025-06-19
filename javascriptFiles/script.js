@@ -496,6 +496,8 @@ const buy_Product = (haveSizesID ,productNameID, sizeID, quantityID, priceValueI
 
     // Store the order as an array: [userID, User_name, subtotal, date, time, [order], tax]
     const receipt = [userID, User_name, subtotal, date, time, [newOrder], subtotal * 0.02];
+
+    console.log(receipt);
     history_Of_Purchase.push(receipt);
     localStorage.setItem("history_Of_Purchase", JSON.stringify(history_Of_Purchase));
     Show_history_Of_Purchase();
