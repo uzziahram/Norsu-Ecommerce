@@ -494,8 +494,8 @@ const buy_Product = (haveSizesID ,productNameID, sizeID, quantityID, priceValueI
     const date = now.toLocaleDateString();
     const time = now.toLocaleTimeString();
 
-    // Store the order as an array: [userID, User_name, subtotal, date, time, ...order, tax]
-    const receipt = [userID, User_name, subtotal, date, time, newOrder, subtotal * 0.02];
+    // Store the order as an array: [userID, User_name, subtotal, date, time, [order], tax]
+    const receipt = [userID, User_name, subtotal, date, time, [newOrder], subtotal * 0.02];
     history_Of_Purchase.push(receipt);
     localStorage.setItem("history_Of_Purchase", JSON.stringify(history_Of_Purchase));
     Show_history_Of_Purchase();
@@ -618,8 +618,8 @@ const Show_history_Of_Purchase = () => {
             </table>
         `;
         const tableBody = risibo.querySelector('tbody');
-        // Only loop through items, not including the last element (tax)
-        const items = receipt.slice(5, receipt.length - 1);
+        // Only loop through items array (receipt[5])
+        const items = receipt[5];
         for (let item of items) {
             const sizeCell = item.hasOwnProperty("size") ? `<td><h5>${item.size}</h5></td>` : `<td><h5>N/A</h5></td>`;
             const rowHTML = `
