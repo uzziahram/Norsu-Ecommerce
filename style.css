@@ -365,41 +365,47 @@ cursor: pointer;
     max-width: 600px; /* Optional: width constraint */
     margin: 0 auto; /* Center align the container */
 }
+.orderedProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 2%;
+    position: relative;
+}
+
 .orderedProduct img {
     width: 28px;
-    float: right;  
-    margin: 0px 0px 0px 15px;
-}
-.orderedProduct img:hover {
+    height: 28px;
+    margin: 0 0 0 15px;
+    float: right;
     cursor: pointer;
+    display: inline-block;
 }
 
-.leftContainer {
-    justify-items: center;
-
-}
-.rightContainer {
-    padding: 3.9rem 0rem 0rem 0rem;
-
+.orderedProduct img:hover {
+    opacity: 0.7;
 }
 
-.orderedProduct {
-    gap: 10px; /* Spacing between grid items */
-    padding: 15px;
-    border: 1px solid #ddd; /* Border for individual products */
-    border-radius: 6px; /* Rounded corners for product cards */
-    background-color: #fff; /* Background color for each product */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  }
 .orderName {
-    margin: 0px 0px 20px 0px;
+    margin: 0 0 20px 0;
 }
+
+.center {
+    text-align: center;
+}
+
 h5 {
     font-weight: lighter;
-    margin: 0px;
+    margin: 0;
 }
+
 h3 {
-    margin: 0px;
+    margin: 0;
 }
 
 
@@ -425,7 +431,7 @@ h3 {
     position: fixed;
     background-color: rgba(218, 233, 244, 0.297);
     place-items: center;
-    width:90%;
+    width: 90%;
     height: 80%;
     left: 50%;
     transform: translateX(-50%);
@@ -433,11 +439,11 @@ h3 {
     margin: 0;
     bottom: 10%;
     border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Adds the shadow */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(1px);
     overflow: hidden;
     overflow-y: scroll;
-
+    display: block; /* Ensure visible */
 }
 
 

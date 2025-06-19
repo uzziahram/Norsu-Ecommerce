@@ -1,4 +1,3 @@
-
 //Array of products
 const products =  [
         {
@@ -581,7 +580,6 @@ const buyButton = () => {
 
 const Show_history_Of_Purchase = () => {
     const history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase"));
-
     const parentDiv = document.getElementById('transactions');
     parentDiv.innerHTML = '';
 
@@ -611,7 +609,6 @@ const Show_history_Of_Purchase = () => {
                 <tbody></tbody>
             </table>
         `;
-       
         const tableBody = risibo.querySelector('tbody');
         for (let item of receipt.slice(5)) {
             const sizeCell = item.hasOwnProperty("size") ? `<td><h5>${item.size}</h5></td>` : `<td><h5>N/A</h5></td>`;
