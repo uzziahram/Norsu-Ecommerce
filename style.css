@@ -434,7 +434,7 @@ h3 {
     bottom: 10%;
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Adds the shadow */
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1px);
     overflow: hidden;
     overflow-y: scroll;
 
