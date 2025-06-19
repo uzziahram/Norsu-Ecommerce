@@ -583,6 +583,15 @@ const Show_history_Of_Purchase = () => {
     const parentDiv = document.getElementById('transactions');
     parentDiv.innerHTML = '';
 
+    // Add close button for the entire transactions div
+    const closeTransactionsBtn = document.createElement('button');
+    closeTransactionsBtn.textContent = 'Close';
+    closeTransactionsBtn.className = 'close-transactions-btn';
+    closeTransactionsBtn.onclick = function() {
+        parentDiv.style.display = 'none';
+    };
+    parentDiv.appendChild(closeTransactionsBtn);
+
     history_Of_Purchase.forEach((receipt, index) => {
         const risibo = document.createElement('div');
         risibo.classList.add('orderedProduct');
