@@ -463,54 +463,43 @@ const addButton = ( haveSizesID ,productNameID, sizeID, quantityID, priceValueID
 
 //Buy the Product immediately
 const buy_Product = (haveSizesID ,productNameID, sizeID, quantityID, priceValueID) => {
-
     let history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase"));
 
-    const productQuantity = document.getElementById(quantityID).value;
-    const productPrice = document.getElementById(priceValueID).dataset.value;
+    const productQuantity = parseInt(document.getElementById(quantityID).value);
+    const productPrice = parseFloat(document.getElementById(priceValueID).dataset.value);
     const productName = document.getElementById(productNameID).dataset.value;
     const hasSize = document.getElementById(haveSizesID).dataset.value;
 
-    if ( hasSize === "false") {
-
-        const newOrder = new accessory( productID++ ,productName, productQuantity, productPrice, productQuantity * productPrice);
-        history_Of_Purchase.push([newOrder]);
-
+    let newOrder;
+    if (hasSize === "false") {
+        newOrder = new accessory(productID++, productName, productQuantity, productPrice, productQuantity * productPrice);
     } else {
         const productSize = document.getElementById(sizeID).value;
-
-        const newOrder = new shirt( productID++ ,productName, productSize, productQuantity, productPrice, productQuantity * productPrice);
-        history_Of_Purchase.push([newOrder]);
+        newOrder = new shirt(productID++, productName, productSize, productQuantity, productPrice, productQuantity * productPrice);
     }
-        let subtotal = productQuantity * productPrice;
-        const userID = prompt("Please enter your Identification Number: ");
 
-        if (userID === null) {
+    let subtotal = productQuantity * productPrice;
+    const userID = prompt("Please enter your Identification Number: ");
+    if (userID === null) {
+        alert(`Purchase Cancelled`);
+        return;
+    }
+    const User_name = prompt("Please enter your Name: ");
+    if (User_name === null) {
+        alert(`Purchase Cancelled`);
+        return;
+    }
 
-            alert(`Purchase Cancelled`);
-        } else {
+    const now = new Date();
+    const date = now.toLocaleDateString();
+    const time = now.toLocaleTimeString();
 
-            const User_name = prompt("Please enter your Name: ");
-
-            if(User_name === null) {
-                alert(`Purchase Cancelled`);
-
-            } else {
-
-
-                const now = new Date()
-                const date = now.toLocaleDateString();
-                const time = now.toLocaleTimeString();
-
-
-                history_Of_Purchase[history_Of_Purchase.length - 1].unshift(userID, User_name, subtotal, date, time)
-        
-        
-            localStorage.setItem("history_Of_Purchase", JSON.stringify(history_Of_Purchase));
-            Show_history_Of_Purchase()
-            }
-        }
-}
+    // Store the order as an array: [userID, User_name, subtotal, date, time, ...order, tax]
+    const receipt = [userID, User_name, subtotal, date, time, newOrder, subtotal * 0.02];
+    history_Of_Purchase.push(receipt);
+    localStorage.setItem("history_Of_Purchase", JSON.stringify(history_Of_Purchase));
+    Show_history_Of_Purchase();
+};
 
 
 //delete an ordered product
