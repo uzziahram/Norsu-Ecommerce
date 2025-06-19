@@ -590,11 +590,11 @@ const Show_history_Of_Purchase = () => {
             <div class="info">
                 
                 <div>
-                <a id="close${index}" onclick="deleteHistory(${index})">
-                    <img src="buttons/close_6318798.png"/>
-                </a>
-                
+                    <a id="close${index}" onclick="deleteHistory(${index})">
+                        <img src="buttons/close_6318798.png"/>
+                    </a>
                 </div>
+
                 <h5>Purchased by: ${receipt[1]}</h5>
                 <h5>ID: ${receipt[0]}</h5>
                 <h5>Date Purchased: ${receipt[3]}</h5>
@@ -648,6 +648,7 @@ const deleteHistory = (index) => {
     } else {
         console.error("Invalid index for deletion.");
     }
+    Show_history_Of_Purchase();
 };
 
 
