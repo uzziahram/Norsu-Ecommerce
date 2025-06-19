@@ -583,19 +583,16 @@ const Show_history_Of_Purchase = () => {
     const history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase"));
 
     const parentDiv = document.getElementById('transactions');
+    parentDiv.innerHTML = '';
 
-    for (let receipt of history_Of_Purchase) {
+    history_Of_Purchase.forEach((receipt, index) => {
         const risibo = document.createElement('div');
         risibo.classList.add('orderedProduct');
-
-
         risibo.innerHTML = `
-            
             <div class="info">
-                <a id="close${receipt[0]}" onclick="deleteHistory(${receipt[0]})">
-                <img src="buttons/close_6318798.png"/>
+                <a id="close${index}" onclick="deleteHistory(${index})">
+                    <img src="buttons/close_6318798.png"/>
                 </a>
-
                 <div></div>
                 <h5>Purchased by: ${receipt[1]}</h5>
                 <h5>ID: ${receipt[0]}</h5>
@@ -611,15 +608,12 @@ const Show_history_Of_Purchase = () => {
                         <th><h5>Price</h5></th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody></tbody>
             </table>
         `;
        
         const tableBody = risibo.querySelector('tbody');
-
         for (let item of receipt.slice(5)) {
-
             const sizeCell = item.hasOwnProperty("size") ? `<td><h5>${item.size}</h5></td>` : `<td><h5>N/A</h5></td>`;
             const rowHTML = `
                 <tr>
@@ -631,27 +625,23 @@ const Show_history_Of_Purchase = () => {
             `;
             tableBody.innerHTML += rowHTML;
         }
-
         const subtotal = `
-                              <tr>
-                                 <td></td>
-                                 <td></td>
-                                 <td><h5>TOTAL:</h5></td>
-                                 <td><h5>${receipt[2]}</h5></td>
-                              </tr>
-        
-                            `;
-
+            <tr>
+                <td></td>
+                <td></td>
+                <td><h5>TOTAL:</h5></td>
+                <td><h5>${receipt[2]}</h5></td>
+            </tr>
+        `;
         tableBody.innerHTML += subtotal;
-
         parentDiv.appendChild(risibo);
-    }
+    });
 };
 
 
 const deleteHistory = (index) => {
 
-    const history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase")) || [];
+    // const history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase")) || [];
     // const index = history_Of_Purchase.findIndex(orderedProduct => orderedProduct.id === orderedProductID);
 
     if (index >= 0 && index < history_Of_Purchase.length) {
