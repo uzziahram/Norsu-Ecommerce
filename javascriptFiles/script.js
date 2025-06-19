@@ -467,7 +467,9 @@ const buy_Product = (haveSizesID ,productNameID, sizeID, quantityID, priceValueI
 
     const productQuantity = parseInt(document.getElementById(quantityID).value);
     const productPrice = parseFloat(document.getElementById(priceValueID).dataset.value);
-    const productName = document.getElementById(productNameID).dataset.value;
+    // Defensive: get productName from element and log it
+    const productNameElem = document.getElementById(productNameID);
+    const productName = productNameElem ? productNameElem.dataset.value : 'UNKNOWN';
     const hasSize = document.getElementById(haveSizesID).dataset.value;
 
     let newOrder;
@@ -477,6 +479,9 @@ const buy_Product = (haveSizesID ,productNameID, sizeID, quantityID, priceValueI
         const productSize = document.getElementById(sizeID).value;
         newOrder = new shirt(productID++, productName, productSize, productQuantity, productPrice, productQuantity * productPrice);
     }
+
+    // Debug: log the newOrder object
+    console.log('newOrder:', newOrder);
 
     let subtotal = productQuantity * productPrice;
     const userID = prompt("Please enter your Identification Number: ");
@@ -496,8 +501,6 @@ const buy_Product = (haveSizesID ,productNameID, sizeID, quantityID, priceValueI
 
     // Store the order as an array: [userID, User_name, subtotal, date, time, [order], tax]
     const receipt = [userID, User_name, subtotal, date, time, [newOrder], subtotal * 0.02];
-
-    console.log(receipt);
     history_Of_Purchase.push(receipt);
     localStorage.setItem("history_Of_Purchase", JSON.stringify(history_Of_Purchase));
     Show_history_Of_Purchase();
