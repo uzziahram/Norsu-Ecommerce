@@ -223,20 +223,29 @@ const products =  [
 
 
 //NAVBAR script
-const tabs = document.querySelectorAll('[data-tab-target')
-const tabContent = document.querySelectorAll('[data-tab-content]')
+const tabs = document.querySelectorAll('[data-tab-target]');
+const tabContent = document.querySelectorAll('[data-tab-content]');
 
-tabs.forEach (tab => {
+// Add toggle functionality for tabs
+let lastActiveTab = null;
+tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-        const target = document.querySelector(tab.dataset.tabTarget)
-        tabContent.forEach(tabContent =>{
-            tabContent.classList.remove('active')
-        })
-        target.classList.add('active')
-    })
-})
-
-
+        const target = document.querySelector(tab.dataset.tabTarget);
+        if (tab.classList.contains('active')) {
+            // If already active, close it
+            tab.classList.remove('active');
+            if (target) target.classList.remove('active');
+            lastActiveTab = null;
+        } else {
+            // Open the clicked tab, close others
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContent.forEach(tc => tc.classList.remove('active'));
+            tab.classList.add('active');
+            if (target) target.classList.add('active');
+            lastActiveTab = tab;
+        }
+    });
+});
 
 
 
