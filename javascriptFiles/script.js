@@ -591,15 +591,6 @@ const Show_history_Of_Purchase = () => {
     const parentDiv = document.getElementById('transactions');
     parentDiv.innerHTML = '';
 
-    // Add close button for the entire transactions div (as an image)
-    const closeTransactionsBtn = document.createElement('button');
-    closeTransactionsBtn.className = 'close-transactions-btn';
-    closeTransactionsBtn.innerHTML = '<img src="buttons/close_6318798.png" alt="Close" style="width:24px;height:24px;vertical-align:middle;">';
-    closeTransactionsBtn.onclick = function() {
-        parentDiv.style.display = 'none';
-    };
-    parentDiv.appendChild(closeTransactionsBtn);
-
     history_Of_Purchase.forEach((receipt, index) => {
         const risibo = document.createElement('div');
         risibo.classList.add('orderedProduct');

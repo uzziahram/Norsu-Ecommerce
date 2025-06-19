@@ -458,22 +458,3 @@ h3 {
 .center {
     text-align: center;
 }
-
-/* Style for the close transactions button */
-.close-transactions-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-    background: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 14px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.close-transactions-btn:hover {
-    background: #c0392b;
-}
