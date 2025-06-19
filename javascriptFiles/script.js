@@ -454,7 +454,6 @@ const buy_Product = (haveSizesID ,productNameID, sizeID, quantityID, priceValueI
     const productQuantity = document.getElementById(quantityID).value;
     const productPrice = document.getElementById(priceValueID).dataset.value;
     const productName = document.getElementById(productNameID).dataset.value;
-
     const hasSize = document.getElementById(haveSizesID).dataset.value;
 
     if ( hasSize === "false") {
@@ -556,7 +555,7 @@ const buyButton = () => {
                 currentOrder.unshift(userID, User_name, subtotal, date, time);
             
         
-                history_Of_Purchase.push(currentOrder);
+                history_Of_Purchase.unshift(currentOrder);
         
                 currentOrder = [];
         
