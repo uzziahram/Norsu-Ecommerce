@@ -588,10 +588,13 @@ const Show_history_Of_Purchase = () => {
         risibo.classList.add('orderedProduct');
         risibo.innerHTML = `
             <div class="info">
+                
+                <div>
                 <a id="close${index}" onclick="deleteHistory(${index})">
                     <img src="buttons/close_6318798.png"/>
                 </a>
-                <div></div>
+                
+                </div>
                 <h5>Purchased by: ${receipt[1]}</h5>
                 <h5>ID: ${receipt[0]}</h5>
                 <h5>Date Purchased: ${receipt[3]}</h5>
