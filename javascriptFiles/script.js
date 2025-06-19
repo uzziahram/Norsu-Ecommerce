@@ -571,8 +571,6 @@ const buyButton = () => {
             
                 console.log(history_Of_Purchase);   
             }
-
-     
     }
     
 }
@@ -595,6 +593,10 @@ const Show_history_Of_Purchase = () => {
 
         risibo.innerHTML = `
             <div class="info">
+                <a id="close${order.id}" onclick="deleteHistory(${order.id})">
+                    <img src="buttons/close_6318798.png"/>
+                </a>
+                <div></div>
                 <h5>Purchased by: ${receipt[1]}</h5>
                 <h5>ID: ${receipt[0]}</h5>
                 <h5>Date Purchased: ${receipt[3]}</h5>
@@ -645,6 +647,19 @@ const Show_history_Of_Purchase = () => {
         parentDiv.appendChild(risibo);
     }
 };
+
+
+const deleteHistory = (index) => {
+    let history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase"));
+
+    if (index >= 0 && index < history_Of_Purchase.length) {
+        history_Of_Purchase.splice(index, 1);
+        localStorage.setItem("history_Of_Purchase", JSON.stringify(history_Of_Purchase));
+        Show_history_Of_Purchase();
+    } else {
+        console.error("Invalid index for deletion.");
+    }
+}
 
 
 
