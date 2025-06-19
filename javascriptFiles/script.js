@@ -641,9 +641,6 @@ const Show_history_Of_Purchase = () => {
 
 const deleteHistory = (index) => {
 
-    // const history_Of_Purchase = JSON.parse(localStorage.getItem("history_Of_Purchase")) || [];
-    // const index = history_Of_Purchase.findIndex(orderedProduct => orderedProduct.id === orderedProductID);
-
     if (index >= 0 && index < history_Of_Purchase.length) {
         history_Of_Purchase.splice(index, 1);
         localStorage.setItem("history_Of_Purchase", JSON.stringify(history_Of_Purchase));
