@@ -458,3 +458,23 @@ h3 {
 .center {
     text-align: center;
 }
+
+.empty-history-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 40px 0;
+    margin: 40px auto;
+    max-width: 400px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+.empty-history-message h5 {
+    color: #888;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0;
+}

@@ -245,6 +245,10 @@ tabs.forEach(tab => {
             tab.classList.add('active');
             if (target) target.classList.add('active');
             lastActiveTab = tab;
+            // Refresh purchase history if Cart History tab is opened
+            if (target && target.id === 'navCartHistory') {
+                Show_history_Of_Purchase();
+            }
         }
     });
 });
@@ -414,13 +418,6 @@ const showCurrentOrder = () => {
 
    
 }
-
-
-
-
-
-
-
 
 
 //Add product
@@ -595,16 +592,25 @@ const Show_history_Of_Purchase = () => {
     const parentDiv = document.getElementById('transactions');
     parentDiv.innerHTML = '';
 
+    // Show empty message if no history
     if (!history_Of_Purchase || history_Of_Purchase.length === 0) {
         parentDiv.innerHTML = `
-            <div 
-                <h5>Your Cart is empty</h5>
+            <div class="empty-history-message">
+                <h5>Your Purchase History is empty</h5>
             </div>
         `;
         return;
     }
 
+    let validReceipts = 0;
     history_Of_Purchase.forEach((receipt, index) => {
+        // Defensive: check if receipt[5] is an array
+        const items = Array.isArray(receipt[5]) ? receipt[5] : Array.isArray(receipt) && receipt.length > 5 ? receipt.slice(5) : null;
+        if (!Array.isArray(items) || items.length === 0) {
+            console.warn('Skipping malformed receipt at index', index, receipt);
+            return;
+        }
+        validReceipts++;
         const risibo = document.createElement('div');
         risibo.classList.add('orderedProduct');
         risibo.innerHTML = `
@@ -632,8 +638,6 @@ const Show_history_Of_Purchase = () => {
             </table>
         `;
         const tableBody = risibo.querySelector('tbody');
-        // Only loop through items array (receipt[5])
-        const items = receipt[5];
         for (let item of items) {
             const sizeCell = item.hasOwnProperty("size") ? `<td><h5>${item.size}</h5></td>` : `<td><h5>N/A</h5></td>`;
             const rowHTML = `
@@ -666,6 +670,14 @@ const Show_history_Of_Purchase = () => {
         tableBody.innerHTML += subtotal;
         parentDiv.appendChild(risibo);
     });
+    // If all receipts were invalid, show empty message
+    if (validReceipts === 0) {
+        parentDiv.innerHTML = `
+            <div class="empty-history-message">
+                <h5>Your Purchase History is empty</h5>
+            </div>
+        `;
+    }
 };
 
 
@@ -680,28 +692,4 @@ const deleteHistory = (index) => {
     }
     Show_history_Of_Purchase();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
